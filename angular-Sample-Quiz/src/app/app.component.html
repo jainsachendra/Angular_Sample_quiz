@@ -1,0 +1,30 @@
+<hello name="{{ name }}"></hello>
+<p>
+
+<button class="button" (click)="showQuiz()"> Start Quiz </button>
+
+</p>
+<div *ngIf="showquiz" class="jumbotron">
+  <ul>
+<!-- {{question}} -->
+
+  </ul>
+  	<ul *ngFor="let opt of quizlist">
+    {{opt.ID}}  {{opt.question}}
+      
+					<div class="radio" *ngFor="let option of opt.anslistobj">
+						<label>
+             <input type="radio" name="Answer" id='Q{{opt.ID}}' value=
+            '{{option}}'(click)="check($event,opt,opt.ID)">
+           {{option}}
+   <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+
+
+
+   </label>
+					</div>
+				</ul>
+<button class="btn btn-info" (click)="generatemark()">submit</button>
+
+</div>
+	
